@@ -23,7 +23,7 @@ jobs:
           ./build-for-linux.sh
 
       - name: Upload Linux binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: SNANDer-Linux
           path: build/SNANDer*
@@ -44,7 +44,7 @@ jobs:
           ./build-for-windows.sh
 
       - name: Upload Windows binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: SNANDer-Windows
           path: build/*.exe
@@ -65,7 +65,7 @@ jobs:
           ./build-for-darwin.sh
 
       - name: Upload macOS binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: SNANDer-macOS
           path: build/SNANDer*
