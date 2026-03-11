@@ -1,4 +1,4 @@
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
   Usage:
  -h             display this message
@@ -27,78 +27,85 @@ Examples:
 
 igor@mcmcc-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -i
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
-spi_nand_probe: mfr_id = 0xc2, dev_id = 0x22
-Get Status Register 1: 0x38
+spi_nand_probe: mfr_id = 0xcd, dev_id = 0x70, dev_id_2 = 0x70
+Get Status Register 1: 0x7c
 Get Status Register 2: 0x10
 Using Flash ECC.
-Detected SPI NAND Flash: MXIC MX35LF2G, Flash Size: 256 MB
+Detected SPI NAND Flash: FORESEE F35SQA512M, Flash Size: 64MB, OOB Size: 64B
+Set Status Register 1: 0x00
+Set Status Register 2: 0x11
 
 or
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
-Found programmer device: Winchiphead (WCH) - CH341A
+Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
-spi_nand_probe: mfr_id = 0xef, dev_id = 0xaa
-Get Status Register 1: 0x81
-Get Status Register 2: 0x18
+spi_nand_probe: mfr_id = 0xb0, dev_id = 0x1c, dev_id_2 = 0xb0
+Get Status Register 1: 0x3e
+Get Status Register 2: 0x10
 Using Flash ECC.
-Detected SPI NAND Flash: WINBOND W25N01G, Flash Size: 128 MB
+Detected SPI NAND Flash: UNIM UM19C0HISW, Flash Size: 128MB, OOB Size: 64B
+Set Status Register 1: 0x06
+Set Status Register 2: 0x11
 
 2. Full erase flash with disable internal ECC check. Without OOB, page size 2112 bytes.
 
 igor@mcmcc-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -d -e
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
-spi_nand_probe: mfr_id = 0xc2, dev_id = 0x22
+spi_nand_probe: mfr_id = 0xcd, dev_id = 0x70, dev_id_2 = 0x70
 Get Status Register 1: 0x00
 Get Status Register 2: 0x11
 Disable Flash ECC.
-Detected SPI NAND Flash: MXIC MX35LF2G, Flash Size: 256 MB
+Detected SPI NAND Flash: FORESEE F35SQA512M, Flash Size: 64MB, OOB Size: 64B
+Set Status Register 1: 0x00
+Set Status Register 2: 0x01
 ERASE:
 Set full erase chip!
-Erase addr = 0x0000000000000000, len = 0x0000000010800000
-Erase 100% [276824064] of [276824064] bytes
-Elapsed time: 3 seconds
+Erase addr = 0x0000000000000000, len = 0x0000000004200000
+Erase 100% [69206016] of [69206016] bytes
+Elapsed time: 1 seconds
 Status: OK
-igor@mcmcc-GL553VE:~/Soft/SNANDer-bin/Linux$
 
 3. Write and verify flash with disable internal ECC check. Without OOB, page size 2112 bytes.
 
-igor@mcmcc-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -d -v -w ecc_2Gb_2K_64_flashimage_rfb1_ac2600.bin 
+igor@mcmcc-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -d -v -w ecc_512M_2K_64_flashimage_rfb1_ac2600.bin 
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
-spi_nand_probe: mfr_id = 0xc2, dev_id = 0x22
+spi_nand_probe: mfr_id = 0xcd, dev_id = 0x70, dev_id_2 = 0x70
 Get Status Register 1: 0x00
-Get Status Register 2: 0x11
+Get Status Register 2: 0x01
 Disable Flash ECC.
-Detected SPI NAND Flash: MXIC MX35LF2G, Flash Size: 256 MB
+Detected SPI NAND Flash: FORESEE F35SQA512M, Flash Size: 64MB, OOB Size: 64B
+Set Status Register 1: 0x00
+Set Status Register 2: 0x01
 WRITE:
-Write addr = 0x0000000000000000, len = 0x000000000E5A9D6F
-Written 100% [240819567] of [240819567] bytes
-Elapsed time: 4184 seconds
+Write addr = 0x0000000000000000, len = 0x00000000017200C0
+Written 100% [24248512] of [24248512] bytes
+Elapsed time: 405 seconds
 Status: OK
 VERIFY:
-Read addr = 0x0000000000000000, len = 0x000000000E5A9D6F
-Read 100% [240819567] of [240819567] bytes
-Elapsed time: 2047 seconds
+Read addr = 0x0000000000000000, len = 0x00000000017200C0
+Read 100% [24248512] of [24248512] bytes
+Elapsed time: 193 seconds
 Status: OK
 
 4. Read Microwire EEPROM Atmel 93C46 and save file.
 
 igor@igor-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -E 93c46 -r test.bin
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
@@ -115,7 +122,7 @@ Status: OK
 
 igor@igor-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -E 93c46 -w test.bin -v
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
@@ -140,7 +147,7 @@ Status: OK
 
 igor@igor-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -E 25640 -v -w test.bin
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
@@ -161,7 +168,7 @@ Status: OK
 
 igor@igor-GL553VE:~/Soft/SNANDer-bin/Linux$ ./SNANDer -E 25640 -v -w test.bin -s 32
 
-SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9 by McMCC <mcmcc_at_mail.ru>
+SNANDer - Serial Nor/nAND/Eeprom programmeR v.1.7.9.1 by McMCC <mcmcc_at_mail.ru>
 
 Found programmer device: WinChipHead (WCH) - CH341A
 Device revision is 3.0.4
