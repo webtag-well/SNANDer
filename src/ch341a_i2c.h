@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-#define MAX_EEPROM_SIZE			131072 /* For 24c1024*/
+#define MAX_EEPROM_SIZE			262144 /* For 24c2048*/
 
 #define EEPROM_I2C_BUS_ADDRESS		0x50
 
@@ -358,6 +358,7 @@ const static struct EEPROM eepromlist[] = {
 	{ "24c256",  32768,  32/*64*/,  2, 0x00 },
 	{ "24c512",  65536,  32/*128*/, 2, 0x00 },
 	{ "24c1024", 131072, 32/*128*/, 2, 0x01 },
+	{ "24c2048", 262144, 32/*256*/, 2, 0x03 },
 	{ 0, 0, 0, 0 }
 };
 
